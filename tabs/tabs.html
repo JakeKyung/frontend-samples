@@ -3,16 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Frontend-Samples</title>
+  <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
   <style>
-    #content { color: red }
+    .nav { overflow: hidden; height: 45px; background-color: #efefef; font-size: 13px; border: 1px solid #efefef; }
+    .nav a { color: #b5b5b5; text-align: center; height: 45px; line-height: 45px; float: left; padding: 0 30px;}
+    .nav a.on { background-color: #fff; color: #22acc9; }
   </style>
 </head>
 <body>
 <h1>Tabs control</h1>
 
-<p id="content"></p>
+<div class="nav js-tab-hd">
+  <a class="on" href="javascript:void(0);">NEW</a>
+  <a href="javascript:void(0);" class="">BEST</a>
+  <a href="javascript:void(0);" class="">SALE</a>
+</div>
+
 <script>
-  document.getElementById("content").innerHTML = "hello";
+  jQuery(function() {
+    // Convert Tab
+    jQuery('.js-tab-hd > a').on('click', function() {
+      jQuery(this).addClass('on').siblings('a').removeClass('on').end().index();
+    });
+  });
 </script>
 </body>
 </html>
